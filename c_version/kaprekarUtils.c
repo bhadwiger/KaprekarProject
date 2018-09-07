@@ -31,17 +31,20 @@ int isKaprekar(int n) {
   int i;
   long square = n * (long) n;
   int numberOfDigits = (int) log10(n) + 1;
-  long modulus = 10;
+  long modulus = 1;
   long first, second;
 
+
   //for each possible "split" of the square...
-  for(i=1; i<=numberOfDigits; i++) {
+  for(i=1; i<=numberOfDigits + 2; i++) {
+
     //increase the modulus by a factor of 10
     modulus *= 10;
 
     //split the square into two parts
     first = square / modulus;
     second = square % modulus;
+
 
     //test if the split makes a Kaprekar number
     if(second > 0 &&
